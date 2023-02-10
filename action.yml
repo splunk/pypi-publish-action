@@ -1,0 +1,20 @@
+name: "pypi publish"
+description: "This action builds package from current directory and publishes it to pypi"
+
+inputs:
+  pypi_username:
+    required: true
+  pypi_token:
+    required: true
+
+runs:
+  using: "composite"
+  steps:
+    - name: build package
+      run: |
+        set -eE
+        set -v
+        poetry build
+        echo pypi user=${{ inputs.pypi_username }}
+        poetry publish -n -u ${{ inputs.pypi_username }} -p ${{ inputs.token }}
+      shell: bash
