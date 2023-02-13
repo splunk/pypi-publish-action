@@ -15,5 +15,5 @@ runs:
         set -eE
         set -v
         poetry build
-        poetry publish -n -u ${{ inputs.pypi_username }} -p ${{ inputs.token }}
+        poetry publish -n -u ${{ inputs.pypi_username }} -p ${{ inputs.pypi_token }}
       shell: bash
