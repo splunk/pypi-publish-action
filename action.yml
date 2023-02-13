@@ -16,5 +16,11 @@ runs:
         set -v
         poetry build
         echo pypi user=${{ inputs.pypi_username }}
-        poetry publish -n -u ${{ inputs.pypi_username }} -p ${{ inputs.token }}
+        echo "*** check strings value ***"
+        echo "__init__.py"
+        cat splunk_add_on_ucc_framework/__init__.py
+        echo "***"
+        echo "pyproject.toml"
+        cat pyproject.toml
+        #poetry publish -n -u ${{ inputs.pypi_username }} -p ${{ inputs.token }}
       shell: bash
